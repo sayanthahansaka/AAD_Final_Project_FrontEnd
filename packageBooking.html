@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>User Package</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8f6;
+        }
+        
+        .navbar {
+            background-color: #17f108;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #e9f4fb !important;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: #e9f4fb;
+        }
+
+        .btn-outline-success {
+            border-color: #17f108;
+            color: #17f108;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #17f108;
+            color: #e9f4fb;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            color: #17f108;
+        }
+
+        .btn-primary {
+            color: #e9f4fb;
+            background-color: #17f108;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #12c906;
+        }
+
+        .star .checked {
+            color: #f4d942;
+        }
+
+        .star i {
+            color: #ccc;
+        }
+
+        .package-inclusions {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .luxury-card {
+    border: 2px solid gold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform .2s;
+    }
+
+    .luxury-card:hover {
+        transform: scale(1.05);
+    }
+    .btn-primary {
+            background-color: #caf108;
+            border-color: #caf108;
+        }
+
+        .card {
+            border: 1px solid #caf108;
+        }
+
+        .card-title {
+            color: #caf108;
+        }
+
+        .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        }
+
+        .flex-column {
+            flex: 0 0 31%;  
+        }
+
+        .form-group {
+            margin-bottom: 1rem;  
+        }
+
+        .btn-primary {
+            background-color: #caf108;
+            border-color: #caf108;
+        }
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background-color: #b0d907;
+            border-color: #b0d907;
+        }
+
+
+        .modal-header {
+            background-color: #caf108;
+            color: white;
+        }
+
+        .modal-header .close {
+            color: white; 
+        }
+
+        .modal-header .close:hover {
+            color: #b0d907;
+        }
+
+        .form-control:focus + label {
+            color: #caf108;
+        }
+
+        .custom-btn {
+        padding: 15px 150px;
+        background-color: #17f108;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        }
+
+        .custom-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .form-control {
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+        border-color: #caf108;
+        box-shadow: 0 0 5px rgba(202, 241, 8, 0.5);
+        transform: scale(1.02); /* slight zoom in */
+    }
+
+    .btn {
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+        background-color: #caf108;
+        border-color: #caf108;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #b0d907;
+        border-color: #a1c007;
+        transform: scale(1.05);
+    }
+
+    .btn-outline-success {
+        color: #caf108;
+        border-color: #caf108;
+    }
+
+    .btn-outline-success:hover,
+    .btn-outline-success:focus {
+        background-color: #caf108;
+        color: white;
+        border-color: #caf108;
+        transform: translateY(-2px); /* slight move up */
+    }
+
+    .table th {
+        background-color: #caf108;
+        color: black;
+        font-weight: 600;
+    }
+
+    .table td,
+    .table th {
+        border-color: #caf108;
+    }
+
+    .container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .custom-btn {
+        padding: 10px 100px;
+        font-size: 1.4rem;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        animation: popIn 0.5s ease forwards;
+    }
+
+    .custom-btn:hover {
+        transform: scale(1.05);
+        animation: shake 0.5s ease-in-out 1;
+    }
+    /* ============== */
+    
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+        75% {
+            transform: translateX(-5px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Our Packages</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="hotelspkg.html">Hotels</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="uservehicles.html">Vehicles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="guideuse.html">Guide</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="payments.html">Payments</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search for packages" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<section class="packages" id="packages">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="color: #17f108;">Explore Our Premium Packages</h2>
+            <p>Dive into the world of luxury with our carefully curated packages. Every package includes accommodation in top-tier hotels, dedicated vehicle service, and a knowledgeable local guide to ensure you have the best experience.</p>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+        
+        <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+                <img src="./styele/image/h1 (1).jpg" alt="Kandy">
+                 <div class="card-body">
+                    <h3>Regular</h3>
+                    <p>Experience the essentials of Sri Lanka's beauty with our Regular package. Enjoy comfortable stays and key attractions without stretching your budget.</p>
+                    <div class="package-details">
+                        <ul>
+                            <li>Package ID: 101</li>
+                            <li>Package Category: Luxury</li>
+                            <li>Travel Duration: 5 days, 4 nights</li>
+                            <li>Travel Area: Coastal Regions</li>
+                            <li>Remark: A boat trip is included.</li>
+                            <li>Adults: 2</li>
+                            <li>Children: 0</li>
+                            <li>Total Head Count: 2</li>
+                            <li>Pets: Not Allowed</li>
+                            <li>Guide: Included</li>
+                            <li>Paid Value: LKR 10,000</li>
+                            <li>Total Package Value: LKR 40,000</li>
+                            <li>Hotel ID: 1</li>
+                            <li>Vehicle ID: 3</li>
+                            <li>User ID: 5</li>
+                            <li>Guide ID: 7</li>
+                        </ul>
+                    </div>
+                    <div class="package-inclusions">
+                        <ul>
+                            <li>Stay at 5-star Sigiriya Hotel.</li>
+                            <li>Private vehicle service for the entire trip.</li>
+                            <li>Guided tour by a certified local expert.</li>
+                        </ul>
+                    </div>
+                    <div class="star">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star "></i>
+                        <i class="fa-solid fa-star "></i>
+                    </div>
+                    <h6>Price: <strong>LKR 25,000</strong></h6>
+                    <a href="packageBookUse.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./styele/image/h1 (2).jpg" alt="">
+                        <div class="card-body">
+                          <h3>Mid-level</h3>
+                          <p>Dive a bit deeper into the Sri Lankan experience with enhanced accommodations and more inclusions than the Regular package, for a balanced mix of exploration and relaxation.</p>
+                    
+                            <div class="package-inclusions">
+                                <ul>
+                                    <li>Stay at a premium Polonnaruwa Hotel.</li>
+                                    <li>Dedicated vehicle service throughout the tour.</li>
+                                    <li>Guided exploration by a local history expert.</li>
+                                </ul>
+                            </div>
+                            <div class="package-details">
+                                <ul>
+                                    <li>Package ID: 102</li>
+                                    <li>Package Category: Budget</li>
+                                    <li>Travel Duration: 3 days, 2 nights</li>
+                                    <li>Travel Area: Mountains</li>
+                                    <li>Remark: Trekking is recommended.</li>
+                                    <li>Adults: 4</li>
+                                    <li>Children: 2</li>
+                                    <li>Total Head Count: 6</li>
+                                    <li>Pets: Allowed</li>
+                                    <li>Guide: Not Included</li>
+                                    <li>Paid Value: LKR 5,000</li>
+                                    <li>Total Package Value: LKR 20,000</li>
+                                    <li>Hotel ID: 2</li>
+                                    <li>Vehicle ID: 4</li>
+                                    <li>User ID: 6</li>
+                                    <li>Guide ID: 8</li>
+                                </ul>
+                            </div>
+                            <h6>Price: <strong>LKR 20,000</strong></h6>
+                            <a href="packageBookUse.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card">
+                        <img src="./styele/image/h1 (3).jpg" alt="">
+                        <div class="card-body">
+                          <h3>Luxury</h3>
+                          <p>For those seeking the finest experiences, our Luxury package offers top-tier accommodations and exclusive experiences ensuring an unforgettable journey in Sri Lanka.</p>
+                         
+                            <div class="package-inclusions">
+                                <ul>
+                                    <li>Stay at a luxurious Anuradhapura Resort.</li>
+                                    <li>Personal vehicle service for all travel needs.</li>
+                                    <li>Guided tours to historical sites by a local expert.</li>
+                                </ul>
+                            </div>
+                            <div class="package-details">
+                                <ul>
+                                    <li>Package ID: 103</li>
+                                    <li>Package Category: Family</li>
+                                    <li>Travel Duration: 6 days, 5 nights</li>
+                                    <li>Travel Area: Historical Sites</li>
+                                    <li>Remark: A museum tour is included.</li>
+                                    <li>Adults: 3</li>
+                                    <li>Children: 2</li>
+                                    <li>Total Head Count: 5</li>
+                                    <li>Pets: Not Allowed</li>
+                                    <li>Guide: Included</li>
+                                    <li>Paid Value: LKR 12,000</li>
+                                    <li>Total Package Value: LKR 45,000</li>
+                                    <li>Hotel ID: 3</li>
+                                    <li>Vehicle ID: 5</li>
+                                    <li>User ID: 7</li>
+                                    <li>Guide ID: 9</li>
+                                </ul>
+                            </div>
+                            <div class="star">
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star checked"></i>
+                                <i class="fa-solid fa-star "></i>
+                                <i class="fa-solid fa-star "></i>
+                            </div>
+                            <h6>Price: <strong>LKR 30,000</strong></h6>
+                            <a href="packageBookUse.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="./styele/image/h1 (4).jpg" alt="">
+                    <div class="card-body">
+                      <h3>Super Luxury</h3>
+                      <p>Indulge in the epitome of luxury with our Super Luxury package. Enjoy elite experiences, top-notch accommodations, and unparalleled services tailored for the discerning traveler.</p>
+                        <div class="package-inclusions">
+                            <ul>
+                                <li>Accommodation in a scenic mountain lodge.</li>
+                                <li>Dedicated vehicle service for sightseeing.</li>
+                                <li>Nature trails guided by a local expert.</li>
+                            </ul>
+                        </div>
+                        <div class="package-details">
+                            <ul>
+                                <li>Package ID: 104</li>
+                                <li>Package Category: Adventure</li>
+                                <li>Travel Duration: 7 days, 6 nights</li>
+                                <li>Travel Area: Forests</li>
+                                <li>Remark: Camping under the stars is a must!</li>
+                                <li>Adults: 5</li>
+                                <li>Children: 0</li>
+                                <li>Total Head Count: 5</li>
+                                <li>Pets: Allowed</li>
+                                <li>Guide: Not Included</li>
+                                <li>Paid Value: LKR 8,000</li>
+                                <li>Total Package Value: LKR 35,000</li>
+                                <li>Hotel ID: 4</li>
+                                <li>Vehicle ID: 6</li>
+                                <li>User ID: 8</li>
+                                <li>Guide ID: 10</li>
+                            </ul>
+                        </div>
+                        <div class="star">
+                            <i class="fa-solid fa-star checked"></i>
+                            <i class="fa-solid fa-star checked"></i>
+                            <i class="fa-solid fa-star checked"></i>
+                            <i class="fa-solid fa-star "></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <h6>Price: <strong>LKR 35,000</strong></h6>
+                        <a href="packageBookUse.html" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      
+
+
+<script src="styele/js/jquery-3.6.1.min.js"></script>
+<script src="js/adminPackage.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

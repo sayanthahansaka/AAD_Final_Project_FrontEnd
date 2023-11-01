@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <style>
+        .navbar {
+            background-color: #caf108;
+        }
+
+        .btn-primary {
+            background-color: #caf108;
+            border-color: #caf108;
+        }
+
+        .card {
+            border: 1px solid #caf108;
+        }
+
+        .card-title {
+            color: #caf108;
+        }
+
+        .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        }
+
+        .flex-column {
+            flex: 0 0 31%;  
+        }
+
+        .form-group {
+            margin-bottom: 1rem;  
+        }
+
+        .btn-primary {
+            background-color: #caf108;
+            border-color: #caf108;
+        }
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background-color: #b0d907;
+            border-color: #b0d907;
+        }
+
+
+        .modal-header {
+            background-color: #caf108;
+            color: white;
+        }
+
+        .modal-header .close {
+            color: white; 
+        }
+
+        .modal-header .close:hover {
+            color: #b0d907;
+        }
+
+        .form-control:focus + label {
+            color: #caf108;
+        }
+
+        .custom-btn {
+        padding: 15px 150px;
+        background-color: #17f108;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        }
+
+        .custom-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .form-control {
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+        border-color: #caf108;
+        box-shadow: 0 0 5px rgba(202, 241, 8, 0.5);
+        transform: scale(1.02); /* slight zoom in */
+    }
+
+    .btn {
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+        background-color: #caf108;
+        border-color: #caf108;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #b0d907;
+        border-color: #a1c007;
+        transform: scale(1.05);
+    }
+
+    .btn-outline-success {
+        color: #caf108;
+        border-color: #caf108;
+    }
+
+    .btn-outline-success:hover,
+    .btn-outline-success:focus {
+        background-color: #caf108;
+        color: white;
+        border-color: #caf108;
+        transform: translateY(-2px); /* slight move up */
+    }
+
+    .table th {
+        background-color: #caf108;
+        color: black;
+        font-weight: 600;
+    }
+
+    .table td,
+    .table th {
+        border-color: #caf108;
+    }
+
+    .container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .custom-btn {
+        padding: 10px 100px;
+        font-size: 1.4rem;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        animation: popIn 0.5s ease forwards;
+    }
+
+    .custom-btn:hover {
+        transform: scale(1.05);
+        animation: shake 0.5s ease-in-out 1;
+    }
+    /* ============== */
+    
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+        75% {
+            transform: translateX(-5px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+ 
+
+    </style>
+</head>
+<body>
+    <div class="modal-body">
+        <form action="#" method="POST">
+            <div class="flex-container">
+    
+                <!-- Column 1 -->
+                <div class="flex-column">
+                        <div class="form-floating">
+                            <label>Vehicle ID</label>
+                            <input id="vehicleID" name="aadhar" type="text" class="form-control" placeholder="Vehicle Brand">
+
+                        </div>
+
+                        <div class="form-floating">
+                            <label>Vehicle Catageory</label>
+                            <input id="vehicleCategory" name="aadhar" type="text" class="form-control" placeholder="Vehicle Catageory">
+
+                        </div>
+
+                        <div class="form-floating">
+                                        <label>Fuel Usage</label>
+                            <input id="fuelUsage" name="aadhar" type="text" class="form-control" placeholder="Fuel Usage">
+
+                        </div>
+
+                        <div class="form-floating">
+                                        <label>Vehicle Type</label>
+                            <input id="vehicleType" name="aadhar" type="text" class="form-control" placeholder="Vehicle Type">
+
+                        </div>
+
+                        <div class="form-floating">
+                             <label>Drivers Contact Number</label>
+                            <input id="driversContactNumber" name="aadhar" type="text" class="form-control" placeholder="Drivers Contact Number">
+
+                        </div>
+
+                </div>
+    
+                <!-- Column 2 -->
+                <div class="flex-column">
+                    <div class="form-group">
+                        <label for="packageID">Package ID</label>
+                        <select class="form-control" id="packageID" name="packageID">
+                            <option value="">Select a Package ID</option>
+                        </select>
+                    </div>
+
+                        <div class="form-floating">
+                            <label>Fuel Type</label>
+                            <input id="fuelType" name="aadhar" type="text" class="form-control" placeholder="Fuel Type">
+
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label>Vehicle Image</label>
+                            <input id="vehicleImage" name="vehicleImage" type="file" class="form-control" onchange="displayImage(this, 'previewVehicleImage')" accept="image/*">
+                            <img id="previewVehicleImage" src="" alt="Preview Vehicle Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                        </div>
+                        
+
+                        <div class="form-floating">
+                            <label>Transmission Type</label>
+                            <input id="transmissionType" name="aadhar" type="text" class="form-control" placeholder="Transmission Type">
+
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label for="driverLicenseImage">Driver License Image</label>
+                            <input id="driverLicenseImage" name="driverLicenseImage" type="file" class="form-control" onchange="displayImage(this, 'previewDriverLicenseImage')" accept="image/*">
+                            <img id="previewDriverLicenseImage" src="" alt="Preview Driver License Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                        </div>
+                </div>
+    
+                <!-- Column 3 -->
+                <div class="flex-column">
+                        <div class="form-floating">
+                            <label>Vehicle Brand</label>
+                            <input id="vehicleBrand" name="aadhar" type="text" class="form-control" placeholder="Vehicle Brand">
+                        </div>
+
+
+                        <div class="form-floating">
+                             <label>Hybrid Or Not</label>
+                            <input id="isHybrid" name="aadhar" type="checkbox" value="true" class="form-control" placeholder="Hybrid Or Not">
+                        </div>
+
+
+                        <div class="form-floating">
+                            <label>Seat Capacity</label>
+                            <input id="seatCapacity" name="aadhar" type="text" class="form-control" placeholder="Seat Capacity">
+                        </div>
+
+                        <div class="form-floating">
+                            <label>Drivers Name</label>
+                            <input id="driversName" name="aadhar" type="text" class="form-control" placeholder="Drivers Name">
+
+                        </div>
+
+
+                        <div class="form-floating">
+                            <label>Remarks</label>
+                            <input id="remarks" name="aadhar" type="text" class="form-control" placeholder="Remarks">
+
+                        </div>
+                </div>
+                </div>
+        </form>
+    </div>        
+    
+
+    <script src="styele/js/jquery-3.6.1.min.js"></script>
+    <script src="./js/script/adminVehicle.js"></script>
+
+    <div class="row mt-3">
+        <div class="col-lg-3 col-md-12 mb-2">
+            <button type="button" id="btnSearch" class="btn btn-primary" style="background-color: #17f108;">Search</button>
+        </div>
+        <div class="col-lg-3 col-md-12 mb-2">
+            <button type="button" id="btnAdd" class="btn btn-primary">Add</button>
+        </div>
+        <div class="col-lg-3 col-md-12 mb-2">
+            <button type="button" id="btnUpdate" class="btn btn-outline-success" style="color: rgb(255, 0, 179);">Update</button>
+        </div>
+        <div class="col-lg-3 col-md-12">
+            <button type="button" id="btnDelete" class="btn btn-outline-danger">Delete</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vehicle ID</th>
+                    <th>Package ID</th>
+                    <th>Vehicle Brand</th>
+                    <th>VehicleCategory</th>
+                    <th>FuelType</th>
+                    <th>FuelUsage</th>
+                    <th>Vehicle Type</th>
+                    <th>Drivers Name</th>
+                    <th>Is Hybrid</th>
+                    <th>Drivers Contact Number</th>
+                    <th>Driver License ImageRef</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function displayImage(input, imgId) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageElement = document.getElementById(imgId);
+                    imageElement.src = e.target.result;
+                    imageElement.style.display = "block";
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+    
+</body>
+</html>

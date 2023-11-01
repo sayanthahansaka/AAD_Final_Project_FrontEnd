@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="userAndAdminLogin.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #e6f4ea;  /* Light shade of the theme for a soft background */
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);  /* Adding a subtle shadow for depth */
+        }
+
+        .center h1 {
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 2px solid #17f108;  /* Using theme color */
+            color: #17f108;
+        }
+
+        .center form {
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        form .txt_field {
+            position: relative;
+            border-bottom: 2px solid #adadad;
+            margin: 30px 0;
+        }
+
+        .txt_field input {
+            width: 100%;
+            padding: 10px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+            transition: .3s;
+        }
+
+        .txt_field label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50%);
+            font-size: 16px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .txt_field span::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #17f108;  /* Using theme color */
+            transition: .5s;
+        }
+
+        .txt_field input:focus~label,
+        .txt_field input:valid~label {
+            top: -5px;
+            color: #17f108;  /* Using theme color */
+        }
+
+        .txt_field input:focus~span::before,
+        .txt_field input:valid~span::before {
+            width: 100%;
+        }
+
+        .pass {
+            margin: -5px 0 20px 5px;
+            color: #a6a6a6;
+            cursor: pointer;
+        }
+
+        .pass:hover {
+            color: #17f108;  /* Using theme color */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            height: 50px;
+            border: none;
+            background: #17f108;  /* Using theme color */
+            border-radius: 25px;
+            font-size: 18px;
+            color: #e9f4fb;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0d9407;
+        }
+
+        .signup_link {
+            margin: 30px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .signup_link a {
+            color: #17f108;  /* Using theme color */
+            text-decoration: none;
+        }
+
+        .signup_link a:hover {
+            text-decoration: underline;
+        }
+        select {
+            appearance: none;
+            outline: #17f108;
+            border: #17f108;
+            background: black;
+            padding: 10px;
+            font-size: 16px;
+            border-bottom: 2px solid #adadad;
+            width: 100%;
+            transition: border-bottom-color .3s;
+        }
+
+        select:focus {
+            border-bottom-color: #17f108;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #17f108;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            }
+            .btnA {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #da2727;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post" action="loginBackend">
+            <div class="txt_field">
+                <input id="username" type="text" name="email" required autocomplete="username">
+                <span></span>
+                <label>User Name</label>
+            </div>
+            
+            <div class="txt_field">
+                <input id="password" type="password" name="password" required autocomplete="current-password">
+                <span></span>
+                <label>Password</label>
+            </div>
+            
+            <div class="txt_field">
+                <select id="Admin_Role" name="role" required>
+                    <option value="" selected disabled>Select Role</option>
+                    <option value="guideAdmin">guideAdmin</option>
+                    <option value="hotelAdmin">hotelAdmin</option>
+                    <option value="packageAdmin">Package Admin</option>
+                    <option value="paymentAdmin">Payment Admin</option>
+                    <option value="vehicleAdmin">Vehicle Admin</option>
+                </select>
+                <span></span>
+            </div>
+
+            <div class="pass"><a href="forgotPassword.html">Forgot Password?</a></div>
+            <button id="loginButton" class="btn">Login</button>
+
+            <div class="signup_link">
+                Not a member? <a href="signUp.html">SignUp</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        localStorage.setItem("userAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6ImxhbGEiLCJpYXQiOjE2OTgzOTY3NjcsImV4cCI6NDg1MTk5Njc2N30.NSVw4_n38FJ6-Gy5DrlgNklEnzRPixz_-UjKeqvh0mg"));
+        localStorage.setItem("hotelToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJzYXlhIiwiaWF0IjoxNjk4NjQ5MTQ5LCJleHAiOjQ4NTIyNDkxNDl9.TnyuXkQDmmY4JSA1s-Rvp1rcCdAsIGrXdaCFuJeVISc"));
+        localStorage.setItem("VEHIToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6ImpvaG4xMjMiLCJpYXQiOjE2OTgwNDk0ODUsImV4cCI6NDg1MTY0OTQ4NX0.xzQB4WbvHQOl7jf6vVjff74JrLEVE1V3ELdfUZL4sF0"));
+        localStorage.setItem("PCKGToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6InlvbW4iLCJpYXQiOjE2OTgwNDk5ODIsImV4cCI6NDg1MTY0OTk4Mn0.oM0GUoPgtjJdlJzU6Ji8HnVjznujyBeXdUNLNqE2A3Y"));
+        // Smole
+        localStorage.setItem("packageAadminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBYWRtaW4iLCJzdWIiOiJsYWxheSIsImlhdCI6MTY5ODQ2Njk1NCwiZXhwIjo0ODUyMDY2OTU0fQ.TV7Ve9GRdiIdy0EpTWI9wM_hOwJ50HRgD29QS7yCWEg"));
+        localStorage.setItem("GUIDEToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJsYWxheSIsImlhdCI6MTY5ODQ2MTI2NSwiZXhwIjo0ODUyMDYxMjY0fQ.-8-qRWsQUb3mYHijjmi4mq2dLTGjM6GWYdykQkDVuNg"));
+
+        });
+
+        $(document).ready(function() {
+            $("#loginButton").on("click", function() {
+                event.preventDefault();
+                saveAdmin();
+            });
+        });
+
+        function saveAdmin() {
+            var tokenKey;
+            var loginEmailInput = document.getElementById("username");
+            var loginPasswordInput = document.getElementById("password");
+            var loginRoleInput = document.getElementById("Admin_Role");
+
+            const username = loginEmailInput.value;
+            const loginPassword = loginPasswordInput.value;
+            const loginRole = loginRoleInput.value;
+
+            const selectedService = loginRole;
+
+            switch (selectedService) {
+                case "guideAdmin":
+                    swal("Welcome to Guide Service");
+                    tokenKey = "GUIDEToken";
+                    break;
+                case "hotelAdmin":
+                    swal("Welcome to Hotel Service");
+                    tokenKey = "hotelToken";
+                    break;
+                case "packageAdmin":
+                    swal("Welcome to Package Service");
+                    tokenKey = "PCKGToken";
+                    break;
+                case "paymentAdmin":
+                    swal("Welcome to Payment Service");
+                    tokenKey = "PCKGToken"; // You may want to fix this token
+                    break;
+                case "vehicleAdmin":
+                    swal("Welcome to Vehicle Service");
+                    tokenKey = "VEHIToken";
+                    break;
+                default:
+                    return swal("Unknown role. Please check your credentials.");
+            }
+
+            $.ajax({
+                url: "http://localhost:8080/api/v1/auth/getAdmin?userName=" + username + "&userPassword=" + loginPassword,
+                method: "GET",
+                async: true,
+                headers: {
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem(tokenKey))
+                },
+                success: (res) => {
+                    console.log(res);
+                        swal("Success " + res.data.role);
+                        swal("Success " + res.data.isAuthenticated);
+                        switch (selectedService) {
+                            case "guideAdmin":
+                                window.location.href = 'guideAdmin.html';
+                                break;
+                            case "hotelAdmin":
+                                window.location.href = 'adminHotel.html';
+                                break;
+                            case "paymentAdmin":
+                                window.location.href = 'dashboards/pay/payment.html';
+                                break;
+                            case "vehicleAdmin":
+                                window.location.href = 'dashboards/vehi/vehicles.html';
+                                break;
+                            case "packageAdmin":
+                                window.location.href = 'dashboards/packagedetails/packagedetails.html';
+                                break;
+                        } 
+                },
+                error: (error) => {
+                    return swal("An error occurred while authenticating with the server");
+                }
+            });
+        }
+
+
+// ===============================
+    </script>
+</body>
+</html>
+
+
+

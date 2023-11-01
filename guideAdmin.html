@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Guide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f4f8f7;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #caf108;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-light .navbar-brand,
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .flex-column {
+            flex: 0 0 31%;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #caf108;
+            box-shadow: 0 0 5px rgba(202, 241, 8, 0.5);
+            transform: scale(1.02);
+        }
+
+        .btn {
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary {
+            background-color: #caf108;
+            border-color: #caf108;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #b0d907;
+            border-color: #a1c007;
+            transform: scale(1.05);
+        }
+
+        .btn-outline-success {
+            color: #caf108;
+            border-color: #caf108;
+        }
+
+        .btn-outline-success:hover,
+        .btn-outline-success:focus {
+            background-color: #caf108;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .table th {
+            background-color: #caf108;
+            color: black;
+            font-weight: 600;
+        }
+
+        .table td,
+        .table th {
+            border-color: #caf108;
+        }
+
+        .container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Our Packages</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hotel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Book here</button>
+            </form>
+        </div>
+    </nav>
+
+   
+
+  
+
+    <div class="modal-body">
+        <form action="#" method="POST">
+            <div class="flex-container">
+                <!-- Column 1 -->
+                <div class="flex-column">
+                    <div class="form-group">
+                        <label for="guideID">Guide ID</label>
+                        <input type="number" class="form-control" id="guideID" name="guideID" placeholder="Enter the guide ID">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideName">Guide Name</label>
+                        <input type="text" class="form-control" id="guideName" name="guideName" placeholder="Enter the guide name">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideAddress">Guide Address</label>
+                        <input type="text" class="form-control" id="guideAddress" name="guideAddress" placeholder="Enter the guide address">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideAge">Guide Age</label>
+                        <input type="number" class="form-control" id="guideAge" name="guideAge" placeholder="Enter the guide age">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideGender">Guide Gender</label>
+                        <input type="text" class="form-control" id="guideGender" name="guideGender" placeholder="Enter the guide gender">
+                    </div>
+                </div>
+    
+                <!-- Column 2 -->
+                <div class="flex-column">
+                    <div class="form-group">
+                        <label for="guideContact">Guide Contact</label>
+                        <input type="text" class="form-control" id="guideContact" name="guideContact" placeholder="Enter the guide contact">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideNICImageLocation">Guide NIC Image</label>
+                        <input type="file" class="form-control" id="guideNICImageLocation" name="guideNICImageLocation" placeholder="Upload the guide NIC image" onchange="displayImage(this, 'uploadedNICImage')">
+                        <img id="uploadedNICImage" src="" alt="Uploaded NIC Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                    </div>
+                    <!--//////////////  -->
+                    
+                    
+                    <div class="form-group">
+                        <label for="guideIDImageLocation">Guide ID Image Location</label>
+                        <input type="file" class="form-control" id="guideIDImageLocation" name="guideIDImageLocation" placeholder="Enter the guide ID image location" onchange="displayImage(this, 'uploadedIDImage')">
+                        <img id="uploadedIDImage" src="" alt="Uploaded ID Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="guideExperience">Guide Experience</label>
+                        <input type="text" class="form-control" id="guideExperience" name="guideExperience" placeholder="Enter the guide experience">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="manDayValue">Man Day Value</label>
+                        <input type="number" class="form-control" id="manDayValue" name="manDayValue" placeholder="Enter the man day value">
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="remarks">Remarks</label>
+                    <textarea class="form-control" id="remarks" name="remarks" rows="5" placeholder="Enter the remarks"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+            <script src="styele/js/jquery-3.6.1.min.js"></script>
+            <script src="./js/script/adminGuide.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        
+    
+           
+            <div class="row mt-3">
+                <div class="col-lg-3 col-md-12 mb-2">
+                    <button type="button" id="btnSearch" class="btn btn-primary" style="background-color: #17f108;">Search</button>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-2">
+                    <button type="button" id="btnAdd" class="btn btn-primary">Add</button>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-2">
+                    <button type="button" id="btnUpdate" class="btn btn-outline-success" style="color: rgb(255, 0, 179);">Update</button>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <button type="button" id="btnDelete" class="btn btn-outline-danger">Delete</button>
+                </div>
+        </div>
+
+   
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Guide ID</th>
+                    <th>Guide Name</th>
+                    <th>Guide Address</th>
+                    <th>Guide Age</th>
+                    <th>Guide Gender</th>
+                    <th>Guide Contact</th>
+                    <th>Guide Experience</th>
+                    <th>Man Day Value</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        function displayImage(input, imgId) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var uploadedImage = document.getElementById(imgId);
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = "block";
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+  
+</body>
+</html>

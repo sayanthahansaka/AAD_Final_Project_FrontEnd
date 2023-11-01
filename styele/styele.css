@@ -1,0 +1,708 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Lato', sans-serif;
+    color: black;
+  }
+  
+  /* Navbar Start */
+  #navbar{
+    background: #f9f9f9;
+  }
+  #logo{
+    font-size: 36px;
+    font-weight: 550;
+    color: white;
+    text-shadow: 0px 1px 1px white;
+    margin-bottom: 5px;
+  }
+  #logo span{
+    color: #17f108;
+  }
+  .navbar-toggler span{
+    color: #17f108;
+  }
+  .navbar-nav{
+    margin-left: 20px;
+  }
+  .nav-item .nav-link{
+    font-size: 16px;
+    font-weight: 550;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+  }
+  .nav-item .nav-link:hover{
+    background: #17f108;
+    color: white;
+  }
+  #navbar form button{
+    background: 17f108;
+    color: white;
+    border: none;
+  }
+  
+  
+  .btn{
+        font-family: 'Fredoka One', cursive;
+        margin: 0px 8px;
+        background-color: white;
+        color: white; 
+        padding: 3px 10px;
+        border: 2px solid rgb(121, 240, 3);
+        border-radius: 8px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .btn li{
+        display: flex;
+        float: right;
+        color: rgb(233, 32, 152);
+    }
+    .btn:hover{
+        background-color: #17f108;
+    }
+    /* ---------------------------------------------------- nav bar end-------------------------------------------- */
+  
+  /* Home Section Start */
+  .home{
+    width: 100%;
+    height: 90vh;
+    background-image: url(./image/yow.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home .content {
+    text-align: center;
+  }
+  
+  .home .content{
+    text-align: center;
+    padding-top: 200px;
+  }
+  .home .content h5{
+    color: white;
+    font-size: 38px;
+    font-weight: 550;
+    text-shadow: 0px 1px 1px black;
+  }
+  .home .content h1{
+    color: white;
+    font-size: 70px;
+    font-weight: 550;
+    text-shadow: 0px 1px 1px black;
+    margin-top: 5px;
+  }
+  .changecontent::after{
+    content: ' ';
+    color: #17f108;
+    text-shadow: 0px 1px 1px black;
+    animation: changetext 10s infinite linear;
+  }
+  @keyframes changetext{
+    0%{content: "Sigiriya";}
+    10%{content: "Hoton Plase";}
+    20%{content: "Kandy";}
+    30%{content: "Galle";}
+    40%{content: "Udawalava";}
+    50%{content: "Dabulla";}
+    60%{content: "Anuradhapura";}
+    70%{content: "Mathara";}
+    80%{content: "Polonnaruwa";}
+    90%{content: "Hikkaduwa";}
+    100%{content: "trincomalli";}
+  } 
+  .home .content p{
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 30px;
+    margin-top: 5px;
+  }
+  .home .content a{
+    padding: 10px;
+    background: white;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 550;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  .home .content a:hover{
+    background: #17f108;
+    color: white;
+  }
+  @media (max-width:850px){
+    .home{
+        background-position: 50%;
+    }
+  }
+  @media (max-width:450px){
+    .home .content h5{
+        font-size: 25px;
+    }
+    .home .content h1{
+        font-size: 38px;
+    }
+    .home .content p{
+        font-size: 13px;
+    }
+  }
+
+  /* } */ .main-text h1 span {
+      color: #17f108;
+    }
+    
+    .submit {
+      background-color: #17f108;
+      color: white;
+      padding: 15px 30px;  /* Increased padding for a larger button */
+      font-size: 18px;     /* Increased font-size for better visibility */
+      border-radius: 8px;  /* Slightly rounded corners */
+      border: none;        /* Remove any default browser styling */
+      cursor: pointer;     /* Change cursor to pointer on hover */
+      transition: 0.3s;
+  }
+  
+  .submit:hover {
+      background-color: #0c8a06;
+  }
+  
+    
+    .service-card {
+        background-color: #f7f7f7;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #17f108; /* Adds a thematic color bar on the side */
+    }
+    
+    .service-card h3 {
+        margin-top: 0;
+        color: #17f108;  /* Thematic color for the headings */
+    }
+    
+    .testimonials h2 {
+        color: #17f108;
+    }
+    
+    blockquote {
+        border-left: 4px solid #17f108;  /* Thematic color for the quote line */
+        padding-left: 15px;
+        font-style: italic;
+    }
+    .special-card {
+        border: 2px solid #17f108; 
+        box-shadow: 0px 0px 15px #17f108; 
+      }
+      
+      .special-card:hover {
+        transform: scale(1.05); 
+        transition: transform 0.3s ease-in-out; 
+      }
+  
+  /* Section Book End */
+  
+  
+  
+  
+  
+  /* Section Packages Start */
+  .main-txt h1{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+  }
+  .main-txt h1 span{
+    color: #17f108;
+  }
+  .packages .card{
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+  }
+  .packages .card img{
+    border-radius: 5px;
+  }
+  .packages .card .card-body{
+    background: transparent;
+  }
+  .packages .card .card-body h3{
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .packages .card .card-body p{
+    font-size: 15px;
+  }
+  .checked{
+    color: #17f108;
+  }
+  .star i{
+    font-size: 15px;
+  }
+  .packages .card .card-body h6{
+    font-size: 20px;
+  }
+  .packages .card .card-body a{
+    padding: 10px;
+    text-decoration: none;
+    background: #17f108;
+    color: white;
+    border-radius: 5px;
+  }
+  /* Section Packages End */
+  
+  
+  
+  
+  /* Section Services Start */
+  .services{
+    background: #f9f9f9;
+    margin-top: 50px;
+  }
+  .services .card{
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    border: none;
+    cursor: pointer;
+  }
+  .services .card i{
+    font-size: 80px;
+    text-align: center;
+    color: #17f108;
+    margin-top: 20px;
+  }
+  .services .card .card-body h3{
+    font-weight: 600;
+  }
+  .services .card .card-body{
+    text-align: center;
+  }
+  /* Section Services End */
+  
+  /* -----------guide--------------- */
+  /* Guide Section */
+  .guide {
+    background-color: #f9f9f9; /* Light gray background for contrast */
+    padding: 50px 0; /* Padding for top and bottom */
+  }
+  
+  .guide .main-txt h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px; /* Spacing between the title and the content */
+    color: #333;
+  }
+  
+  .guide .main-txt h1 span {
+    color: #17f108; /* Highlight color, adjust if needed */
+  }
+  
+  .guide .card {
+    transition: transform .2s; /* Animation effect for hover */
+    cursor: pointer; /* Hand cursor on hover */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Simple shadow for depth */
+  }
+  
+  .guide .card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  .guide .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0; /* Rounded corners for the top */
+  }
+  
+  .guide .card-body {
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 5px 5px; /* Rounded corners for the bottom */
+  }
+  
+  .guide .card-body h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .guide .card-body p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px; /* Space between text and the button */
+  }
+  
+  .guide .card-body a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #17f108; /* Same color as the highlighted text */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underlines from the link */
+    transition: background-color .2s; /* Animation effect for hover */
+  }
+  
+  .guide .card-body a:hover {
+    background-color: #17f108; /* A bit darker color for hover */
+  }
+  
+  
+  
+  
+  /* Section Gallary Start */
+  .gallary{
+    margin-top: 50px;
+  }
+  .gallary .card{
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    cursor: pointer;
+  }
+  .gallary .card img{
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  .gallary .card img:hover{
+    transform: scale(1.1);
+  }
+  /* Section Gallary End */
+  
+  
+  
+  
+  /* About Start */
+  .about{
+    padding: 50px;
+    margin-top: 50px;
+    background: #f9f9f9;
+  }
+  .about .card{
+    border-radius: 10px;
+  }
+  .about .card img{
+    border-radius: 10px;
+  }
+  .about h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .about p{
+    font-weight: 500;
+  }
+  #about-btn{
+    width: 150px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background: #17f108;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 550;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  #about-btn:hover{
+    width: 170px;
+  }
+  @media (max-width:765px){
+    .about{
+        padding: 0;
+    }
+  }
+  /* About End */
+  
+  
+  
+  
+  /* Footer Start */
+  /* #footer{
+    width: 100%;
+    margin-top: 150px;
+    text-align: center;
+    background: #f9f9f9;
+  }
+  #footer h1{
+    font-weight: 600;
+    padding-top: 30px;
+    text-shadow: 0px 0px 1px black;
+  }
+  #footer h1 span{
+    color: #17f108;
+  }
+  .social-links i{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  .social-links i:hover{
+    background: #17f108; */
+    #footer {
+      background-color: #000;  /* Black background */
+      color: #fff;  /* White text */
+      padding: 20px 0;
+      text-align: center;
+  }
+  
+  #footer h1 {
+      font-size: 2em;
+  }
+  #footer h1 span {
+    color: #17f108;
+  }
+  
+  #footer p {
+      margin: 10px 0;
+  }
+  
+  #footer .social-links a {
+      color: #17f108;  /* Icons in the vivid green color */
+      margin: 0 10px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s;
+  }
+  
+  #footer .social-links a:hover {
+      color: #0d9407;  /* A slightly darker green for hover effect */
+  }
+  
+  #footer .social-links i {
+      color: #17f108;  /* Ensuring icons have the green color */
+  }
+  
+  .copyright {
+      font-size: 0.8em;
+      margin-top: 20px;
+  }
+  
+  
+  
+  /* Footer End */
+  /* General Animation: Fade In */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  .fade-in {
+    animation: fadeIn 1s forwards;
+  }
+  
+  /* Navbar Animation: Slide Down */
+  @keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+  }
+  #navbar {
+    animation: slideDown 0.5s forwards;
+  }
+  
+  /* Home Section Animation: Zoom In */
+  @keyframes zoomIn {
+    from {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+  }
+  .home {
+    animation: zoomIn 2s forwards;
+  }
+  
+  /* Book Section Animation: Card Hover */
+  .book .card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s;
+  }
+  
+  /* Packages Section Animation: Card Hover */
+  .packages .card:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s;
+  }
+  
+  /* Services Section Animation: Card Rotate */
+  .services .card:hover {
+    transform: rotate(-5deg);
+    transition: all 0.3s;
+  }
+  
+  /* Guide Section Animation: Card Flip */
+  .guide .card {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  .guide .card:hover {
+    transform: rotateY(180deg);
+  }
+  
+  /* Gallery Section Animation: Card Lift */
+  .gallary .card:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s;
+  }
+  
+  /* About Section Animation: Slide In Right */
+  @keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+  }
+  .about {
+    animation: slideInRight 1s forwards;
+  }
+  
+  /* Footer Animation: Slide Up */
+  @keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+  }
+  #footer {
+    animation: slideUp 0.5s forwards;
+  }
+  /*  yoooooooooooooooooooooooooooooooooooooooooooooooooooooooo*/
+  /* General Bounce Effect */
+  @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+      }
+      40% {
+          transform: translateY(-10px);
+      }
+      60% {
+          transform: translateY(-5px);
+      }
+  }
+  .bounce {
+      animation: bounce 1s;
+  }
+  
+  /* Navbar Slide & Fade In */
+  @keyframes slideFadeIn {
+      from {
+          opacity: 0;
+          transform: translateY(-100%);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  #navbar {
+      animation: slideFadeIn 1s forwards;
+  }
+  
+  /* Home Section Parallax on Hover */
+  .home:hover {
+      background-position: center top 5px;
+      transition: background-position 0.5s;
+  }
+  
+  /* Packages 3D Tilt on Hover */
+  .packages .card {
+      transform: perspective(1000px) rotateX(0) rotateY(0);
+      transition: transform 0.5s;
+  }
+  .packages .card:hover {
+      transform: perspective(1000px) rotateX(-3deg) rotateY(5deg);
+  }
+  
+  /* Services Icon Pop on Hover */
+  .services .card i {
+      transition: transform 0.3s;
+  }
+  .services .card:hover i {
+      transform: scale(1.1);
+  }
+  
+  /* Guide Image Slide up to Reveal Details */
+  .guide .card-body {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.5s;
+  }
+  .guide .card:hover .card-body {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+  /* Gallary Color Overlay on Hover */
+  .gallary .card {
+      position: relative;
+  }
+  .gallary .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(23, 241, 8, 0.2);
+      opacity: 0;
+      transition: opacity 0.5s;
+  }
+  .gallary .card:hover::before {
+      opacity: 1;
+  }
+  
+  /* About Text Reveal Effect */
+  .about h2, .about p {
+      clip-path: inset(0 0 0 100%);
+      transition: clip-path 1s;
+  }
+  .about:hover h2, .about:hover p {
+      clip-path: inset(0 0 0 0);
+  }
+  
+  /* Footer Color Pulse Effect */
+  @keyframes pulse {
+      0% {
+          background-color: #000;
+      }
+      50% {
+          background-color: #333;
+      }
+      100% {
+          background-color: #000;
+      }
+  }
+  #footer {
+      animation: pulse 5s infinite;
+  }
+  
