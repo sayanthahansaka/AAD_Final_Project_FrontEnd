@@ -3,6 +3,86 @@ $(document).ready(()=>{
     fetchPackageData();
 });
 
+// ................add.................
+
+$(document).ready(() => {
+    // Function to populate form fields with response data
+    function populateFieldsWithResponse(packageData) {
+        $('#packageDetailsID').val(packageData.packageDetailsID);
+        $('#packageID').val(packageData.packageID);
+        $('#hotelID').val(packageData.hotelID);
+        $('#vehicleID').val(packageData.vehicleID);
+        $('#userID').val(packageData.userID);
+        $('#guideID').val(packageData.guideID);
+        $('#packageCategory').val(packageData.packageCategory);
+        $('#startDuration').val(packageData.startDuration);
+        $('#endDuration').val(packageData.endDuration);
+        $('#travelArea').val(packageData.travelArea);
+        $('#nameGuide').val(packageData.nameGuide);
+        $('#noOfDays').val(packageData.noOfDays);
+        $('#noOfAdults').val(packageData.noOfAdults);
+        $('#noOfChildren').val(packageData.noOfChildren);
+        $('#totalHeadCount').prop('checked', packageData.totalHeadCount);
+        $('#isPetsAllowed').prop('checked', packageData.isPetsAllowed);
+        $('#isGuideNeeded').prop('checked', packageData.isGuideNeeded);
+        $('#totalPackageValue').val(packageData.totalPackageValue);
+        $('#packagePaidValue').val(packageData.packagePaidValue);
+        $('#remarks').val(packageData.remarks);
+    }
+
+    // Function to handle form submission
+    $('#btnsubmit').click((event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Create formData object
+        const formData = {
+            packageID: $('#packageID').val(),
+            hotelID: $('#hotelID').val(),
+            vehicleID: $('#vehicleID').val(),
+            userID: $('#userID').val(),
+            guideID: $('#guideID').val(),
+            packageCategory: $('#packageCategory').val(),
+            startDuration: $('#startDuration').val(),
+            endDuration: $('#endDuration').val(),
+            travelArea: $('#travelArea').val(),
+            nameGuide: $('#nameGuide').val(),
+            noOfDays: $('#noOfDays').val(),
+            noOfAdults: $('#noOfAdults').val(),
+            noOfChildren: $('#noOfChildren').val(),
+            totalHeadCount: $('#totalHeadCount').is(':checked'),
+            isPetsAllowed: $('#isPetsAllowed').is(':checked'),
+            isGuideNeeded: $('#isGuideNeeded').is(':checked'),
+            totalPackageValue: $('#totalPackageValue').val(),
+            packagePaidValue: $('#packagePaidValue').val(),
+            remarks: $('#remarks').val()
+            // Add more fields here, if needed
+        };
+
+        // Continue with your AJAX request using formData
+        $.ajax({
+            url: 'http://localhost:8083/api/v1/package/add',
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('packageAdminToken')),
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(formData),
+            success: (response) => {
+                alert('Package added successfully!');
+                // Clear the form
+                $('#addPackageForm')[0].reset();
+            },
+            error: (error) => {
+                console.error('Error adding the package:', error);
+                alert('Error adding the package. Please try again.');
+            }
+        });
+    });
+});
+
+
+// ///////////////////...........
+
 
 $(document).ready(function() {
     const fetchPackageData = () => {
@@ -55,7 +135,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#btnSearch').on('click', function() {
-        const packageID = $('#packageID').val().trim();
+        const packageID = $('#packageDetailsID').val().trim();
 
         if (packageID) {
             fetchPackageByID(packageID);
@@ -84,22 +164,45 @@ function fetchPackageByID(id) {
 function populateFieldsWithResponse(response) {
     let packageData = response.data;
     if (packageData) {
+        // $('#packageDetailsID').val(packageData.packageID);
+        // $('#packageID').val(packageData.packageID);
+        // $('#hotelID').val(packageData.hotelID);
+        // $('#vehicleID').val(packageData.vehicleID);
+        // $('#userID').val(packageData.userID);
+        // $('#guideID').val(packageData.guideID)
+        // $('#packageCategory').val(packageData.packageCategory);
+        // $('#travelDuration').val(packageData.travelDuration);
+        // $('#travelArea').val(packageData.travelArea);
+        // $('#noOfAdults').val(packageData.noOfAdults);
+        // $('#noOfChildren').val(packageData.noOfChildren);
+        // $('#totalHeadCount').val(packageData.totalHeadCount);
+        // $('#isPetsAllowed').prop('checked', packageData.isPetsAllowed);
+        // $('#isGuideNeeded').prop('checked', packageData.isGuideNeeded);
+        // $('#packageValue').val(packageData.packageValue);
+        // $('#packagePaidValue').val(packageData.packagePaidValue);
+        // $('#remarks').val(packageData.remarks);
+        $('#packageDetailsID').val(packageData.packageDetailsID);
         $('#packageID').val(packageData.packageID);
         $('#hotelID').val(packageData.hotelID);
         $('#vehicleID').val(packageData.vehicleID);
         $('#userID').val(packageData.userID);
-        $('#guideID').val(packageData.guideID)
+        $('#guideID').val(packageData.guideID);
         $('#packageCategory').val(packageData.packageCategory);
-        $('#travelDuration').val(packageData.travelDuration);
+        $('#startDuration').val(packageData.startDuration);
+        $('#endDuration').val(packageData.endDuration);
         $('#travelArea').val(packageData.travelArea);
+        $('#nameGuide').val(packageData.nameGuide);
+        $('#noOfDays').val(packageData.noOfDays);
         $('#noOfAdults').val(packageData.noOfAdults);
         $('#noOfChildren').val(packageData.noOfChildren);
         $('#totalHeadCount').val(packageData.totalHeadCount);
         $('#isPetsAllowed').prop('checked', packageData.isPetsAllowed);
         $('#isGuideNeeded').prop('checked', packageData.isGuideNeeded);
-        $('#packageValue').val(packageData.packageValue);
+        $('#totalPackageValue').val(packageData.totalPackageValue);
         $('#packagePaidValue').val(packageData.packagePaidValue);
         $('#remarks').val(packageData.remarks);
+    
+
     } else {
         alert("No data received from the server.");
     }  
@@ -109,7 +212,7 @@ function populateFieldsWithResponse(response) {
 
 $(document).ready(function () {
     $('#btnDelete').on('click', function () {
-        const packageID = $('#packageID').val().trim();
+        const packageID = $('#packageDetailsID').val().trim();
 
         if (packageID) {
             deletePackageByID(packageID);
@@ -137,3 +240,133 @@ function deletePackageByID(packageID) {
     });
 }
 
+
+// ------------------------------------------GEt AND Set Package IDS ComboBOX-----------------------------------------------
+$(document).ready(function() {
+
+    const packageAdminToken = JSON.parse(localStorage.getItem("packageAdminToken"));
+
+    $.ajax({
+        url: 'http://localhost:8083/api/v1/package/allID', 
+        method: 'GET',
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + packageAdminToken
+        },
+        success: function(data) {
+            const packageIDSelect = $('#packageID');
+            
+            data.forEach(function(id) {
+                packageIDSelect.append($('<option>', { 
+                    value: id,
+                    text : id 
+                }));
+            });
+        },
+        error: function(err) {
+            console.error("Error fetching package IDs:", err);
+        }
+    });
+});
+
+// =================hotel ID ======================
+$(document).ready(function() {
+
+    const hotemAdminToken = JSON.parse(localStorage.getItem("hotemAdminToken"));
+
+    $.ajax({
+        url: 'http://localhost:8081/api/v1/hotel/allID', 
+        method: 'GET',
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + hotemAdminToken
+        },
+        success: function(data) {
+            const hotelIDSelect = $('#hotelID');
+            
+            data.forEach(function(id) {
+                hotelIDSelect.append($('<option>', { 
+                    value: id,
+                    text : id 
+                }));
+            });
+        },
+        error: function(err) {
+            console.error("Error fetching Hotel IDs:", err);
+        }
+    });
+});
+
+// ================= Vehicle ID ======================
+$(document).ready(function() {
+
+    const vehicleAdminToken = JSON.parse(localStorage.getItem("vehicleAdminToken"));
+
+    $.ajax({
+        url: 'http://localhost:8082/api/v1/vehicle/allID', 
+        method: 'GET',
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + vehicleAdminToken
+        },
+        success: function(data) {
+            const vehicleIDSelect = $('#vehicleID');
+            
+            data.forEach(function(id) {
+                vehicleIDSelect.append($('<option>', { 
+                    value: id,
+                    text : id 
+                }));
+            });
+        },
+        error: function(err) {
+            console.error("Error fetching vehicle IDs:", err);
+        }
+    });
+});
+
+// ================= User ID ======================
+$(document).ready(function() {
+
+     const userAdminToken = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJzYXlhIiwiaWF0IjoxNjk4NjQ5MTQ5LCJleHAiOjQ4NTIyNDkxNDl9.TnyuXkQDmmY4JSA1s-Rvp1rcCdAsIGrXdaCFuJeVISc';
+
+    $.ajax({
+        url: 'http://localhost:8080/api/v1/auth/allID', 
+        method: 'GET',
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + userAdminToken
+        },
+        success: function(data) {
+            const userAdminToken = $('#userID');
+            
+            data.forEach(function(id) {
+                userAdminToken.append($('<option>', { 
+                    value: id,
+                    text : id 
+                }));
+            });
+        },
+        error: function(err) {
+            console.error("Error fetching User IDs:", err);
+        }
+    });
+});
+
+// -----------------------------------------------Ato set Package ID-----------------------------------------------------------
+
+$.ajax({
+    url: 'http://localhost:8083/api/v1/package/nextPackageID',
+    method: 'GET',
+    headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAdminToken"))
+    },
+    success: function(response) {
+        $('#packageDetailsID').val(response);
+       
+    },
+    error: function(err) {
+        console.error("Error fetching next hotel ID:", err);
+    }
+});

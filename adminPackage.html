@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Package</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
         /* Common Styles */
@@ -99,6 +100,7 @@
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -132,123 +134,199 @@
     <div class="container modal-body">
         <form action="#" method="POST">
             <div class="flex-container">
-
                 <!-- Column 1 -->
                 <div class="flex-column">
-                    <div class="form-floating">
-                        <input id="packageID" name="aadhar" type="text" class="form-control" placeholder="Package ID">
+                    <!-- PackageDetailsID (Combo Box) -->
+                    <div class="form-group">
+                        <label for="packageDetailsID">Package Details ID</label>
+                        <input type="text" class="form-control" id="packageDetailsID" name="packageDetailsID">
+                        </select>
+                    </div>
+
+                    <!-- Package ID (Combo Box) -->
+                    <div class="form-group">
                         <label for="packageID">Package ID</label>
+                        <select class="form-control" id="packageID" name="packageID">
+                            <option value="">Select a Package ID</option>
+                          
+                           </select>
                     </div>
 
-                    <div class="form-floating">
-                        <input id="hotelID" name="aadhar" type="text" class="form-control" placeholder="Hotel ID">
+                    <!-- Hotel ID (Combo Box) -->
+                    <div class="form-group">
                         <label for="hotelID">Hotel ID</label>
+                        <select class="form-control" id="hotelID" name="hotelID">
+                            <option value="">Select a Hotel ID</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
 
-                    <div class="form-floating">
-                        <input id="vehicleID" name="aadhar" type="text" class="form-control" placeholder="Vehicle ID">
+                    <!-- Vehicle ID (Combo Box) -->
+                    <div class="form-group">
                         <label for="vehicleID">Vehicle ID</label>
+                        <select class="form-control" id="vehicleID" name="vehicleID">
+                            <option value="">Select a Vehicle ID</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
 
-                    <div class="form-floating">
-                        <input id="userID" name="aadhar" type="text" class="form-control" placeholder="User ID">
+                    <!-- User ID (Combo Box) -->
+                    <div class="form-group">
                         <label for="userID">User ID</label>
+                        <select class="form-control" id="userID" name="userID">
+                            <option value="">Select a User ID</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    <!-- Guide ID (Combo Box) -->
+                    <div class="form-group">
+                        <label for="guideID">Guide ID</label>
+                        <select class="form-control" id="guideID" name="guideID">
+                            <option value="101">101</option>
+                            <option value="202">202</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
                 </div>
 
                 <!-- Column 2 -->
                 <div class="flex-column">
-                    <div class="form-floating">
-                        <input id="guideID" name="aadhar" type="text" class="form-control" placeholder="Guide ID">
-                        <label for="guideID">Guide ID</label>
-                    </div>
-
-                    <div class="form-floating">
-                        <input id="packageCategory" name="aadhar" type="text" class="form-control" placeholder="Package Category">
+                    <!-- Package Category (Combo Box) -->
+                    <div class="form-group">
                         <label for="packageCategory">Package Category</label>
+                        <select class="form-control" id="packageCategory" name="packageCategory">
+                            <option value="Vacation">Vacation</option>
+                            <option value="Business">Business</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
 
-                    <div class="form-floating">
-                        <input id="travelDuration" name="travelDuration" type="file" class="form-control">
-                        <label for="travelDuration">Travel Duration</label>
+                    <!-- Start Duration (Date Picker) -->
+                    <div class="form-group">
+                        <label for="startDuration">Start Duration</label>
+                        <input type="date" class="form-control" id="startDuration" name="startDuration">
                     </div>
 
-                    <div class="form-floating">
-                        <input id="travelArea" name="aadhar" type="text" class="form-control" placeholder="Travel Area">
+                    <!-- End Duration (Date Picker) -->
+                    <div class="form-group">
+                        <label for="endDuration">End Duration</label>
+                        <input type="date" class="form-control" id="endDuration" name="endDuration">
+                    </div>
+
+                    <!-- Travel Area (Text Input) -->
+                    <div class="form-group">
                         <label for="travelArea">Travel Area</label>
+                        <input type="text" class="form-control" id="travelArea" name="travelArea" placeholder="Travel Area">
+                    </div>
+
+                    <!-- Name Guide (Text Input) -->
+                    <div class="form-group">
+                        <label for="nameGuide">Name Guide</label>
+                        <input type="text" class="form-control" id="nameGuide" name="nameGuide" placeholder="Name Guide">
+                    </div>
+                    <div class="form-group">
+                        <label for="totalPackageValue">Total Package Value</label>
+                        <input type="number" class="form-control" id="totalPackageValue" name="totalPackageValue" step="0.01" min="0.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="packagePaidValue">Package Paid Value</label>
+                        <input type="number" class="form-control" id="packagePaidValue" name="packagePaidValue" step="0.01" min="0.0">
                     </div>
                 </div>
 
                 <!-- Column 3 -->
                 <div class="flex-column">
-                    <div class="form-floating">
-                        <input id="noOfChildren" name="aadhar" type="text" class="form-control" placeholder="No of Children">
+                    <!-- No of Days (Number Input) -->
+                    <div class="form-group">
+                        <label for="noOfDays">No of Days</label>
+                        <input type="number" class="form-control" id="noOfDays" name="noOfDays" min="1">
+                    </div>
+
+                    <!-- No of Adults (Number Input) -->
+                    <div class="form-group">
+                        <label for="noOfAdults">No of Adults</label>
+                        <input type="number" class="form-control" id="noOfAdults" name="noOfAdults" min="0">
+                    </div>
+
+                    <!-- No of Children (Number Input) -->
+                    <div class="form-group">
                         <label for="noOfChildren">No of Children</label>
+                        <input type="number" class="form-control" id="noOfChildren" name="noOfChildren" min="0">
                     </div>
 
-                    <div class="form-floating">
-                        <input id="totalHeadCount" name="aadhar" type="checkbox" value="true" class="form-control" placeholder="Total Head Count">
+                    <!-- Total Head Count (Number Input) -->
+                    <div class="form-group">
                         <label for="totalHeadCount">Total Head Count</label>
+                        <input type="number" class="form-control" id="totalHeadCount" name="totalHeadCount" min="1">
                     </div>
 
-                    <div class="form-floating">
-                        <input id="packageValue" name="aadhar" type="text" class="form-control" placeholder="Package Value">
-                        <label for="packageValue">Package Value</label>
+                    <!-- Is Pets Allowed (Checkbox) -->
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="isPetsAllowed" name="isPetsAllowed">
+                        <label class="form-check-label" for="isPetsAllowed">Is Pets Allowed</label>
                     </div>
 
-                    <div class="form-floating">
-                        <input id="packagePaidValue" name="aadhar" type="text" class="form-control" placeholder="Package Paid Value">
-                        <label for="packagePaidValue">Package Paid Value</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="isGuideNeeded" name="isGuideNeeded">
+                        <label class="form-check-label" for="isGuideNeeded">Is Guide Needed</label>
                     </div>
-
-                    <div class="form-floating">
-                        <input id="remarks" name="aadhar" type="text" class="form-control" placeholder="Remarks">
+                    <div class="form-group">
                         <label for="remarks">Remarks</label>
+                        <input type="text" class="form-control" id="remarks" name="remarks" placeholder="Remarks">
                     </div>
                 </div>
-            </div>
-            <div class="mt-3">
-                <button type="submit" class="btn custom-btn">Submit</button>
-            </div>
-        </form>
-    </div>
 
+            </div>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+           
+        </form>
+        
+    </div>
+    <div class="container modal-body">
+      
+    
+        <!-- Delete and Search buttons in the same line -->
+        <div class="mt-3">
+            <button type="submit" style="background-color: red;" class="btn custom-btn">Delete</button>
+            <button type="button" id="btnSearch" class="btn custom-btn">Search</button>
+        </div>
+    </div>
     <!-- Scripts -->
     <script src="styele/js/jquery-3.6.1.min.js"></script>
     <script src="./js/script/adminPackage.js"></script>
 
-    <!-- Button and Table Sections -->
+    <!-- Table Section -->
     <div class="container">
-        <div class="row mt-3 mb-3">
-            <div class="col-lg-3 col-md-12 mb-2">
-                <button type="button" id="btnSearch" class="btn custom-btn">Search</button>
-            </div>
-            <div class="col-lg-3 col-md-12">
-                <button type="button" id="btnDelete" class="btn btn-outline-danger">Delete</button>
-            </div>
-        </div>
-
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Package Details ID</th>
                     <th>Package ID</th>
                     <th>Hotel ID</th>
                     <th>Vehicle ID</th>
-                    <th>User ID</th>
-                    <th>Guide ID</th>
+                    <th>Start Duration</th>
+                    <th>End Duration</th>
                     <th>Package Category</th>
-                    <th>Travel Duration</th>
-                    <th>Total Head Count</th>
                     <th>Travel Area</th>
-                    <th>Package Value</th>
+                    <th>Name Guide</th>
+                    <th>No of Days</th>
+                    <th>No of Adults</th>
+                    <th>No of Children</th>
+                    <th>Total Head Count</th>
+                    <th>Is Pets Allowed</th>
+                    <th>Is Guide Needed</th>
+                    <th>Total Package Value</th>
+                    <th>User ID</th>
                     <th>Package Paid Value</th>
+                    <th>Remarks</th>
                 </tr>
             </thead>
             <tbody>
+                <!-- Populate table data here -->
             </tbody>
         </table>
     </div>
-
 </body>
 
 </html>
