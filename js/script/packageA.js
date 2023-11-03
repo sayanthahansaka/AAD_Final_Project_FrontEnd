@@ -1,5 +1,21 @@
-localStorage.setItem("packagesATokan",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBfQWFkbWluIiwic3ViIjoidXNlciIsImlhdCI6MTY5ODgxMzUyNywiZXhwIjo0ODUyNDEzNTI3fQ.FoksKLsWxCWgDlwunKYCZ4DRbrj-OeRic3LjqmycU0E"));
+localStorage.setItem("packagesATokan",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBfQWFkbWluIiwic3ViIjoic29tbHBhY2siLCJpYXQiOjE2OTkwMTYzNTksImV4cCI6NDg1MjYxNjM1OX0.Wd5qiV0dzuG0n2eQdAbh70u_ytrojSoq8MlKUiR_E9M"));
 
+
+// "userRole": "p_Aadmin",
+// "userId": "123445",
+// "name": "smol Dweoe",
+// "userName": "somlpack",
+// "userPassword": "packageA123",
+// "userNIC": "1234567890",
+// "userNICImageLocation": "/path/to/image.jpg",
+// "userAge": 30,
+// "gender": "Male",
+// "userEmail": "johndoe@example.com",
+// "userPhone": "1234567890",
+// "userAddress": "123 Main St, City",
+// "remarks": "Some remarks",
+// "userImageLocation": "/path/to/user_image.jpg",
+// "isAuthenticated": true
 
 // Check if the document is ready
 $(document).ready(function() {
@@ -36,7 +52,7 @@ $(document).ready(function (){
 
 function fetchGuideByID(id) {
     $.ajax({
-        url: 'http://localhost:8081/api/v1/package_server/P_search?Package_ID=' + id,
+        url: 'http://localhost:8084/api/v1/package_server/P_search?Package_ID=' + id,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packagesATokan"))
@@ -79,7 +95,7 @@ function OnDltPackage() {
     }
     // Make the AJAX request to save the payment data
     $.ajax({
-        url: "http://localhost:8081/api/v1/package_server/P_dlt?P_id="+ $('#cusID').val(),
+        url: "http://localhost:8084/api/v1/package_server/P_dlt?P_id="+ $('#cusID').val(),
         method: "DELETE",
         contentType: "application/json",
         headers: {
@@ -102,7 +118,7 @@ function OnDltPackage() {
 
 function OnGetAll() {
     $.ajax({
-        url: "http://localhost:8081/api/v1/package_server/P_getAll",
+        url: "http://localhost:8084/api/v1/package_server/P_getAll",
         method: "GET",
         headers: {
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packagesATokan"))
@@ -172,7 +188,7 @@ function OnUpdatePackage() {
     // Make the AJAX request to save the data
     setTimeout(() => {
         $.ajax({
-            url: "http://localhost:8081/api/v1/package_server/P_put",
+            url: "http://localhost:8084/api/v1/package_server/P_put",
             method: "PUT",
             contentType: "application/json",
             data: JSON.stringify(data),
@@ -226,7 +242,7 @@ function OnSavePackage() {
             // Make the AJAX request to save the data
             setTimeout(() => {
                 $.ajax({
-                    url: "http://localhost:8081/api/v1/package_server/P_save",
+                    url: "http://localhost:8084/api/v1/package_server/P_save",
                     method: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),

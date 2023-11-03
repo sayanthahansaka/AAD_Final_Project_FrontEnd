@@ -1,28 +1,42 @@
 $(document).ready(()=>{
-    localStorage.setItem("vehicleAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6ImpvaG4xMjMiLCJpYXQiOjE2OTgwNDk0ODUsImV4cCI6NDg1MTY0OTQ4NX0.xzQB4WbvHQOl7jf6vVjff74JrLEVE1V3ELdfUZL4sF0"))
-  
+    localStorage.setItem("vehicleAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6InZlaGljbGUiLCJpYXQiOjE2OTkwMTI1MjUsImV4cCI6NDg1MjYxMjUyNX0.XkaLYY6Hr6DYitAc-5wzipdBprjp2YUpwFFMufFSU2I"))
+//    "userRole": "vehicleAdmin",
+//     "userId": "123445",
+//     "name": "John Dweoe",
+//     "userName": "vehicle",
+//     "userPassword": "vehicle123",
+//     "userNIC": "1234567890",
+//     "userNICImageLocation": "/path/to/image.jpg",
+//     "userAge": 30,
+//     "gender": "Male",
+//     "userEmail": "johndoe@example.com",
+//     "userPhone": "1234567890",
+//     "userAddress": "123 Main St, City",
+//     "remarks": "Some remarks",
+//     "userImageLocation": "/path/to/user_image.jpg",
+//     "isAuthenticated": true
     fetchVehicleData();    
 });
 
 $(document).ready(() => {
     $(document).on("click", "#btnAdd", () => {
-            let hotel = {
-                vehicleID: parseInt($('#vehicleID').val()),
-                packageID: parseInt($('#packageID').val()),
-                vehicleBrand: $('#vehicleBrand').val(),
-                vehicleCategory: $('#vehicleCategory').val(),
-                fuelType: $('#fuelType').val(),
-                isHybrid: $('#isHybrid').prop('checked'),
-                fuelUsage: $('#fuelUsage').val(),
-                seatCapacity: $('#seatCapacity').val(),
-                vehicleType: $('#vehicleType').val(),
-                transmissionType: $('#transmissionType').val(),
-                driversName: $('#driversName').val(),
-                vehicleImage:$('#vehicleImage').val(),
-                driversContactNumber:$('#driversContactNumber').val(),
-                driverLicenseImage: $('#cancellationCriteria').val(),
-                remarks: $('#remarks').val()
-            }
+        const vehicle = {
+            vehicleID: parseInt($('#vehicleID').val()),
+            packageID: parseInt($('#packageID').val()),
+            vehicleBrand: $('#vehicleBrand').val(),
+            vehicleCategory: $('#vehicleCategory').val(),
+            fuelType: $('#fuelType').val(),
+            isHybrid: $('#isHybrid').prop('checked'),
+            fuelUsage: $('#fuelUsage').val(),
+            seatCapacity: parseInt($('#seatCapacity').val()),
+            vehicleType: $('#vehicleType').val(),
+            transmissionType: $('#transmissionType').val(),
+            driversName: $('#driversName').val(),
+            vehicleImage: $('#vehicleImage').val(),
+            driversContactNumber: $('#driversContactNumber').val(),
+            driverLicenseImage: $('#driverLicenseImage').val(),
+            remarks: $('#remarks').val()
+        };
 
             $.ajax({
                 url: "http://localhost:8082/api/v1/vehicle/sv",
@@ -31,7 +45,7 @@ $(document).ready(() => {
                     "content-type": "application/json",
                     "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAdminToken"))
                 },
-                data: JSON.stringify(hotel),
+                data: JSON.stringify(vehicle),
                 success: (response) => {
                     // if (response.statusCode === 200 || response.statusCode === 201) {
                         // addTableField();
@@ -50,51 +64,57 @@ $(document).ready(() => {
 
 
 // -----------------------------------------------------GET All-------------------------------------------------------------------
+$(document).ready(function () {
+    $("#btnSearch").click(function () {
+        fetchVehicleData();
+    });
 
+    // Initialize the table on page load
+    fetchVehicleData();
 
-    const fetchVehicleData = () => {
+    function fetchVehicleData() {
         $.ajax({
             url: "http://localhost:8082/api/v1/vehicle",
             method: "GET",
             headers: {
-                "content-type": "application/json",
+                "Content-Type": "application/json",
                 "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAdminToken"))
             },
-            success: (response) => {
-                console.log(response);
-
+            success: function (response) {
                 if (response && Array.isArray(response.data)) {
                     populateTable(response.data);
                 } else {
                     console.error("Expected an array inside response.data but got:", response.data);
                 }
             },
-            error: (error) => {
-                alert("OOPS!", "An error occurred while fetching the Vehicle data!", "error");
-            },
+            error: function (error) {
+                alert("An error occurred while fetching the Vehicle data: " + error.statusText);
+            }
         });
     }
 
-    const populateTable = (data) => {
+    function populateTable(data) {
         const tbody = $(".table tbody");
         tbody.empty();
 
-        data.forEach(hotel => {
+        data.forEach(vehicle => {
             let $row = $("<tr></tr>");
-            $row.append($("<td></td>").text(hotel.vehicleID));
-            $row.append($("<td></td>").text(hotel.packageID));
-            $row.append($("<td></td>").text(hotel.vehicleBrand));
-            $row.append($("<td></td>").text(hotel.vehicleCategory));
-            $row.append($("<td></td>").text(hotel.fuelType));
-            $row.append($("<td></td>").text(hotel.fuelUsage));
-            $row.append($("<td></td>").text(hotel.vehicleType));
-            $row.append($("<td></td>").text(hotel.driversName));
-            $row.append($("<td></td>").text(hotel.isHybrid ? 'Yes' : 'No'));
-            $row.append($("<td></td>").text(hotel.driversContactNumber));
-            $row.append($("<td></td>").text(hotel.driverLicenseImage));
+            $row.append($("<td></td>").text(vehicle.vehicleID));
+            $row.append($("<td></td>").text(vehicle.packageID));
+            $row.append($("<td></td>").text(vehicle.vehicleBrand));
+            $row.append($("<td></td>").text(vehicle.vehicleCategory));
+            $row.append($("<td></td>").text(vehicle.fuelType));
+            $row.append($("<td></td>").text(vehicle.fuelUsage));
+            $row.append($("<td></td>").text(vehicle.vehicleType));
+            $row.append($("<td></td>").text(vehicle.driversName));
+            $row.append($("<td></td>").text(vehicle.isHybrid ? 'Yes' : 'No'));
+            $row.append($("<td></td>").text(vehicle.driversContactNumber));
+            $row.append($("<td></td>").text(vehicle.driverLicenseImage));
             tbody.append($row);
         });
     }
+});
+
 
     // ------------------------------Get By ID--------------------------------------------------
     $(document).ready(function() {
@@ -278,6 +298,6 @@ $.ajax({
        
     },
     error: function(err) {
-        console.error("Error fetching next hotel ID:", err);
+        console.error("Error fetching next Vehicle ID:", err);
     }
 });

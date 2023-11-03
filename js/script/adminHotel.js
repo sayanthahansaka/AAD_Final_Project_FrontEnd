@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("hotemAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJ5b21uIiwiaWF0IjoxNjk4MDQ5NzI0LCJleHAiOjQ4NTE2NDk3MjR9.HNjJLcrQpkUq3v_oTW22LQ0CAB8ZgQ1FAPAFOixXT-E"))
+    localStorage.setItem("hotemAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJob3RlbCIsImlhdCI6MTY5OTAxNTI1NSwiZXhwIjo0ODUyNjE1MjU1fQ.2oYcy7lEnW-Jf641U6FrpAZtILEkgdd9bzlTSMGEmAI"))
     // $("#VehicleId").prop("disabled", true);
     // addTableField();
     // packageIds();

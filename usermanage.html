@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/script/userSingUp.js" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e9f4fb;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(16, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 2px solid #17f108;
+            color: #17f108;
+            font-size: 24px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #17f108;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            border: 2px solid #17f108;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #943807;
+            box-shadow: none;
+        }
+
+        .date-input-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .date-input-container .form-control {
+            padding-right: 30px;
+        }
+
+        .date-input-container i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #17f108;
+            pointer-events: none;
+        }
+
+        .btn-primary {
+            background-color: #f1da08;
+            border-color: #f1da08;
+            color: #e9f4fb;
+        }
+
+        .btn-primary:hover {
+            background-color: #943807;
+            border-color: #943807;
+        }
+
+        .btn-primary:active {
+            background-color: #943807;
+            border-color: #943807;
+            box-shadow: none;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table {
+            margin-top: 20px;
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .flex-column {
+            flex: 0 0 31%;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #caf108;
+            box-shadow: 0 0 5px rgba(202, 241, 8, 0.5);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1>Sign Up</h1>
+            <div class="flex-column">
+            <div class="form-group flex">
+                <label for="userRole">User Role:</label>
+                <input type="text" id="userRole" name="userRole" class="form-control" placeholder="User Role">
+            </div>
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" class="form-control" placeholder="User ID">
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Type your name">
+            </div>
+            <div class="form-group">
+                <label for="username">User Name:</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Type your username">
+            </div>
+            </div>
+            <div class="flex-column">
+            <div class="form-group">
+                <label for="nic">User NIC:</label>
+                <input type="text" id="nic" name="nic" class="form-control" placeholder="Type your NIC">
+            </div>
+            <div class="form-group date-input-container">
+                <label for="dob">Date Of Birth:</label>
+                <input type="text" id="age" name="userAge" class="form-control" placeholder="Date Of Birth">
+                <!-- <i class="fas fa-calendar-alt"></i> -->
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" class="form-control" placeholder="Male/Female">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Type your email">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" class="form-control" placeholder="Contact Number">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" class="form-control" rows="3" placeholder="Type your address"></textarea>
+            </div>
+            </div>
+            <div class="flex-column">
+            <div class="form-group">
+                <label for="nic_image">NIC Image:</label>
+                <input type="file" id="nic_image" name="nic_image" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="user_image">Your Image:</label>
+                <input type="file" id="user_image" name="user_image" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Type Your Password">
+            </div>
+            <div class="form-group">
+                <label for="remark">Remark:</label>
+                <textarea id="remark" name="remark" class="form-control" rows="3" placeholder="Remark"></textarea>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+                <button id="submit" class="btn btn-primary">User Submit</button>
+            </div>
+            </div>
+     
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User Role</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>User NIC</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button id="addButton" class="btn btn-primary">Add</button>
+            <button id="searchButton" class="btn btn-primary">Search</button>
+            <button id="updateButton" class="btn btn-primary">Update</button>
+            <button id="deleteButton" class="btn btn-primary">Delete</button>
+        </div>
+    </div>
+</body>
+</html>

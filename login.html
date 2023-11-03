@@ -189,7 +189,7 @@
                     <option value="guideAdmin">guideAdmin</option>
                     <option value="hotelAdmin">hotelAdmin</option>
                     <option value="packageAdmin">Package Admin</option>
-                    <option value="paymentAdmin">Payment Admin</option>
+                    <option value="p_Aadmin">p_Aadmin</option>
                     <option value="vehicleAdmin">Vehicle Admin</option>
                 </select>
                 <span></span>
@@ -207,11 +207,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("userAdminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InVzZXJBZG1pbiIsInN1YiI6ImxhbGEiLCJpYXQiOjE2OTgzOTY3NjcsImV4cCI6NDg1MTk5Njc2N30.NSVw4_n38FJ6-Gy5DrlgNklEnzRPixz_-UjKeqvh0mg"));
-        localStorage.setItem("hotelToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJzYXlhIiwiaWF0IjoxNjk4NjQ5MTQ5LCJleHAiOjQ4NTIyNDkxNDl9.TnyuXkQDmmY4JSA1s-Rvp1rcCdAsIGrXdaCFuJeVISc"));
-        localStorage.setItem("VEHIToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6ImpvaG4xMjMiLCJpYXQiOjE2OTgwNDk0ODUsImV4cCI6NDg1MTY0OTQ4NX0.xzQB4WbvHQOl7jf6vVjff74JrLEVE1V3ELdfUZL4sF0"));
+        localStorage.setItem("hotelToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImhvdGVsQWRtaW4iLCJzdWIiOiJob3RlbCIsImlhdCI6MTY5OTAxNTI1NSwiZXhwIjo0ODUyNjE1MjU1fQ.2oYcy7lEnW-Jf641U6FrpAZtILEkgdd9bzlTSMGEmAI"));
+        localStorage.setItem("VEHIToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InZlaGljbGVBZG1pbiIsInN1YiI6InZlaGljbGUiLCJpYXQiOjE2OTkwMTI1MjUsImV4cCI6NDg1MjYxMjUyNX0.XkaLYY6Hr6DYitAc-5wzipdBprjp2YUpwFFMufFSU2I"));
         localStorage.setItem("PCKGToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBZG1pbiIsInN1YiI6InlvbW4iLCJpYXQiOjE2OTgwNDk5ODIsImV4cCI6NDg1MTY0OTk4Mn0.oM0GUoPgtjJdlJzU6Ji8HnVjznujyBeXdUNLNqE2A3Y"));
         // Smole
-        localStorage.setItem("packageAadminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBhY2thZ2VBYWRtaW4iLCJzdWIiOiJsYWxheSIsImlhdCI6MTY5ODQ2Njk1NCwiZXhwIjo0ODUyMDY2OTU0fQ.TV7Ve9GRdiIdy0EpTWI9wM_hOwJ50HRgD29QS7yCWEg"));
+        localStorage.setItem("packageAadminToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6InBfQWFkbWluIiwic3ViIjoic29tbHBhY2siLCJpYXQiOjE2OTkwMTYzNTksImV4cCI6NDg1MjYxNjM1OX0.Wd5qiV0dzuG0n2eQdAbh70u_ytrojSoq8MlKUiR_E9M"));
         localStorage.setItem("GUIDEToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6Imd1aWRlQWRtaW4iLCJzdWIiOiJsYWxheSIsImlhdCI6MTY5ODQ2MTI2NSwiZXhwIjo0ODUyMDYxMjY0fQ.-8-qRWsQUb3mYHijjmi4mq2dLTGjM6GWYdykQkDVuNg"));
 
         });
@@ -246,10 +246,10 @@
                     break;
                 case "packageAdmin":
                     swal("Welcome to Package Service");
-                    tokenKey = "PCKGToken";
+                    tokenKey = "packageAadminToken";
                     break;
-                case "paymentAdmin":
-                    swal("Welcome to Payment Service");
+                case "p_Aadmin":
+                    swal("Welcome to Package Service");
                     tokenKey = "PCKGToken"; // You may want to fix this token
                     break;
                 case "vehicleAdmin":
@@ -278,8 +278,8 @@
                             case "hotelAdmin":
                                 window.location.href = 'adminHotel.html';
                                 break;
-                            case "paymentAdmin":
-                                window.location.href = 'dashboards/pay/payment.html';
+                            case "p_Aadmin":
+                                window.location.href = 'packagessadmin.html';
                                 break;
                             case "vehicleAdmin":
                                 window.location.href = 'dashboards/vehi/vehicles.html';

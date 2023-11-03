@@ -6,7 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-    <style>
+  
+  <style>
         .navbar {
             background-color: #caf108;
         }
@@ -207,36 +208,30 @@
     
                 <!-- Column 1 -->
                 <div class="flex-column">
-                        <div class="form-floating">
-                            <label>Vehicle ID</label>
-                            <input id="vehicleID" name="aadhar" type="text" class="form-control" placeholder="Vehicle Brand">
-
-                        </div>
-
-                        <div class="form-floating">
-                            <label>Vehicle Catageory</label>
-                            <input id="vehicleCategory" name="aadhar" type="text" class="form-control" placeholder="Vehicle Catageory">
-
-                        </div>
-
-                        <div class="form-floating">
-                                        <label>Fuel Usage</label>
-                            <input id="fuelUsage" name="aadhar" type="text" class="form-control" placeholder="Fuel Usage">
-
-                        </div>
-
-                        <div class="form-floating">
-                                        <label>Vehicle Type</label>
-                            <input id="vehicleType" name="aadhar" type="text" class="form-control" placeholder="Vehicle Type">
-
-                        </div>
-
-                        <div class="form-floating">
-                             <label>Drivers Contact Number</label>
-                            <input id="driversContactNumber" name="aadhar" type="text" class="form-control" placeholder="Drivers Contact Number">
-
-                        </div>
-
+                    <div class="form-floating">
+                        <label>Vehicle ID</label>
+                        <input id="vehicleID" name="vehicleID" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Vehicle Brand</label>
+                        <input id="vehicleBrand" name="vehicleBrand" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Vehicle Category</label>
+                        <input id="vehicleCategory" name="vehicleCategory" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Fuel Type</label>
+                        <input id="fuelType" name="fuelType" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Is Hybrid</label>
+                        <input id="isHybrid" name="isHybrid" type="checkbox" class="form-check-input" value="true">
+                    </div>
                 </div>
     
                 <!-- Column 2 -->
@@ -247,71 +242,61 @@
                             <option value="">Select a Package ID</option>
                         </select>
                     </div>
-
-                        <div class="form-floating">
-                            <label>Fuel Type</label>
-                            <input id="fuelType" name="aadhar" type="text" class="form-control" placeholder="Fuel Type">
-
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <label>Vehicle Image</label>
-                            <input id="vehicleImage" name="vehicleImage" type="file" class="form-control" onchange="displayImage(this, 'previewVehicleImage')" accept="image/*">
-                            <img id="previewVehicleImage" src="" alt="Preview Vehicle Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
-                        </div>
-                        
-
-                        <div class="form-floating">
-                            <label>Transmission Type</label>
-                            <input id="transmissionType" name="aadhar" type="text" class="form-control" placeholder="Transmission Type">
-
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <label for="driverLicenseImage">Driver License Image</label>
-                            <input id="driverLicenseImage" name="driverLicenseImage" type="file" class="form-control" onchange="displayImage(this, 'previewDriverLicenseImage')" accept="image/*">
-                            <img id="previewDriverLicenseImage" src="" alt="Preview Driver License Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
-                        </div>
+    
+                    <div class="form-floating">
+                        <label>Fuel Usage</label>
+                        <input id="fuelUsage" name="fuelUsage" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating mb-3">
+                        <label for="vehicleImage">Vehicle Image</label>
+                        <input id="vehicleImage" name="vehicleImage" type="file" class="form-control" accept="image/*">
+                        <img id="previewVehicleImage" src="" alt="Preview Vehicle Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Transmission Type</label>
+                        <input id="transmissionType" name="transmissionType" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating mb-3">
+                        <label for="driverLicenseImage">Driver License Image</label>
+                        <input id="driverLicenseImage" name="driverLicenseImage" type="file" class="form-control" accept="image/*">
+                        <img id="previewDriverLicenseImage" src="" alt="Preview Driver License Image" style="margin-top:10px; max-width: 200px; max-height: 200px; display:none;">
+                    </div>
                 </div>
     
                 <!-- Column 3 -->
                 <div class="flex-column">
-                        <div class="form-floating">
-                            <label>Vehicle Brand</label>
-                            <input id="vehicleBrand" name="aadhar" type="text" class="form-control" placeholder="Vehicle Brand">
-                        </div>
-
-
-                        <div class="form-floating">
-                             <label>Hybrid Or Not</label>
-                            <input id="isHybrid" name="aadhar" type="checkbox" value="true" class="form-control" placeholder="Hybrid Or Not">
-                        </div>
-
-
-                        <div class="form-floating">
-                            <label>Seat Capacity</label>
-                            <input id="seatCapacity" name="aadhar" type="text" class="form-control" placeholder="Seat Capacity">
-                        </div>
-
-                        <div class="form-floating">
-                            <label>Drivers Name</label>
-                            <input id="driversName" name="aadhar" type="text" class="form-control" placeholder="Drivers Name">
-
-                        </div>
-
-
-                        <div class="form-floating">
-                            <label>Remarks</label>
-                            <input id="remarks" name="aadhar" type="text" class="form-control" placeholder="Remarks">
-
-                        </div>
-                </div>
-                </div>
-        </form>
-    </div>        
+                    <div class="form-floating">
+                        <label>Seat Capacity</label>
+                        <input id="seatCapacity" name="seatCapacity" type="text" class="form-control">
+                    </div>
     
-
-    <script src="styele/js/jquery-3.6.1.min.js"></script>
+                    <div class="form-floating">
+                        <label>Vehicle Type</label>
+                        <input id="vehicleType" name="vehicleType" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Drivers Name</label>
+                        <input id="driversName" name="driversName" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Drivers Contact Number</label>
+                        <input id="driversContactNumber" name="driversContactNumber" type="text" class="form-control">
+                    </div>
+    
+                    <div class="form-floating">
+                        <label>Remarks</label>
+                        <input id="remarks" name="remarks" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
     <script src="./js/script/adminVehicle.js"></script>
 
     <div class="row mt-3">
